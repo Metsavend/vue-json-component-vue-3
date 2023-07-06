@@ -10,17 +10,9 @@
     "tree",
     "expand"
   ],
-  "author": {
-    "name": "Tyler Krupicka",
-    "email": "npm@tylerkrupicka.com",
-    "url": "https://www.tylerkrupicka.com"
-  },
+  "author": "Tyler Krupicka <npm@tylerkrupicka.com> (https://www.tylerkrupicka.com)",
   "contributors": [
-    {
-      "name": "Rainer Tok",
-      "email": "rainertok@metsavend.ee",
-      "url": "https://www.metsavend.ee"
-    }
+    "Rainer Tok <rainertok@metsavend.ee> (https://www.metsavend.ee)"
   ],
   "main": "dist/index.js",
   "module": "dist/index.module.js",
@@ -28,7 +20,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tylerkrupicka/vue-json-component.git"
+    "url": "git+https://github.com/Metsavend/vue-json-component-vue-3"
   },
   "scripts": {
     "serve": "vue-cli-service serve harness/main.ts",
@@ -145,5 +137,9 @@
       "vue-cli-service lint",
       "git add"
     ]
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/tylerkrupicka/vue-json-component/issues"
+  },
+  "homepage": "https://github.com/tylerkrupicka/vue-json-component#readme"
 }
