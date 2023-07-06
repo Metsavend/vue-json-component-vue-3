@@ -1,3 +1,9 @@
 import JSONView from './JSONView.vue';
 
-export { JSONView }
+export default {
+  install(app: any) {
+    app.component('json-view', JSONView);
+  },
+};
+
+export { JSONView };
