@@ -4,6 +4,9 @@
 
 [Demo](http://tylerkrupicka.com/vue-json-component/)
 
+I made this [Original package](https://github.com/tylerkrupicka/vue-json-component) to Vue 3 full support.
+Now you can use it with vue 3 with no problem.
+
 A collapsable tree view for JSON. This package has some similarites with [vue-json-tree-view](https://github.com/michaelfitzhavey/vue-json-tree-view) so I'll address the differences below. I'm not contributing this back to that package because it would require breaking API changes, and the code is entirely different. **Contributions welcome!**
 
 ![demo image](https://user-images.githubusercontent.com/5761061/55198958-7fa16400-518e-11e9-8448-7cd028007920.png)
@@ -24,31 +27,29 @@ The default color theme is based on solarized, and font weights are modified to 
 ### Install
 
 ```bash
-npm i vue-json-component
-yarn add vue-json-component
+npm i vue-json-component-vue-3
+yarn add vue-json-component-vue-3
 ```
 
 ### Import Locally
 
-```js
-import { JSONView } from 'vue-json-component';
-export default Vue.extend({
-  components: { 'json-view': JSONView }
-});
+```js 
+import { JSONView } from 'vue-json-component-vue-3';
+
 ```
 
 ### Import Globally
 
 ```js
-import JSONView from 'vue-json-component';
-Vue.use(JSONView);
+import JSONView from 'vue-json-component-vue-3';
+app.use(JSONView);
 ```
 
 ### Use
 
 ```js
 <template>
-  <json-view :data="data" />
+  <JSONView :data="data" />
 </template>
 
 ```
@@ -84,7 +85,7 @@ The font size and font family are inherited from the page. The component now sup
 
 ```js
 <template>
-  <json-view
+  <JSONView
     :data="data"
     rootKey="view"
     :maxDepth="1"
@@ -111,7 +112,7 @@ Note: your styles will need to be scoped to override the scoped CSS Variables in
 You can allow users to click elements, and receive an event when this occurs. The `selected` event will pass you the key, value, and path of the selected value. If you do not listen for the event, the styles will not indicate that values are clickable.
 
 ```js
-<json-view
+<JSONView
   :data="data"
   v-on:selected="itemSelected"
 />
