@@ -1,6 +1,6 @@
 {
     "name": "vue-json-component-vue-3",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "A VueJS JSON Tree View with no dependencies and module builds.",
     "keywords": [
         "vue",
