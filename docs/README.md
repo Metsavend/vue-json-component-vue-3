@@ -1,10 +1,11 @@
 # Vue JSON Component
 
-[![npm version](https://badge.fury.io/js/vue-json-component.svg)](https://badge.fury.io/js/vue-json-component) [![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.svg?v=101)](https://github.com/ellerbrock/typescript-badges/) ![npm bundle size](https://img.shields.io/bundlephobia/min/vue-json-component.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![npm version](https://badge.fury.io/js/vue-json-component.svg)](https://badge.fury.io/js/vue-json-component) ![npm bundle size](https://img.shields.io/bundlephobia/min/vue-json-component.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [Demo](http://tylerkrupicka.com/vue-json-component/)
 
-I made this [Original package](https://github.com/tylerkrupicka/vue-json-component) to Vue 3 full support.
+I modified this [Original package](https://github.com/tylerkrupicka/vue-json-component) to Vue 3 full support.
+I removed a lot of package's and unneeded modules. Now only reg dependencies is Vue 3
 Now you can use it with vue 3 with no problem.
 
 A collapsable tree view for JSON. This package has some similarites with [vue-json-tree-view](https://github.com/michaelfitzhavey/vue-json-tree-view) so I'll address the differences below. I'm not contributing this back to that package because it would require breaking API changes, and the code is entirely different. **Contributions welcome!**
@@ -13,7 +14,8 @@ A collapsable tree view for JSON. This package has some similarites with [vue-js
 
 ## Philosophy
 
-This package has a few major improvements over predecessors: builds, styles, and customization. For builds, this package ships CommonJS, Module, and UNPKG builds with no dependencies. [vue-json-tree-view](https://github.com/michaelfitzhavey/vue-json-tree-view) bundles in lots of dependencies -- including lodash. I also export global Vue imports, local Vue imports, and TypeScript declarations. The code itself is about as small as it can be while being easy to follow.
+This package has a few major improvements over predecessors: builds, styles, and customization. For builds, this package ships CommonJS, Module, and UNPKG builds with no dependencies. [vue-json-tree-view](https://github.com/michaelfitzhavey/vue-json-tree-view) bundles in lots of dependencies -- including lodash. I also export global Vue imports, local Vue imports.
+The code itself is about as small as it can be while being easy to follow.
 
 - [vue-json-tree-view (84KB)](https://bundlephobia.com/result?p=vue-json-tree-view@2.1.4)
 - [vue-json-component (9KB)](https://bundlephobia.com/result?p=vue-json-component@0.3.0)
@@ -116,39 +118,6 @@ You can allow users to click elements, and receive an event when this occurs. Th
   :data="data"
   v-on:selected="itemSelected"
 />
-```
-
-**Event**
-
-- key: _string_
-- value: _string_
-- path: _string_
-
-## Development
-
-### Install
-
-```bash
-yarn
-```
-
-### Hot-Reload Hostapp
-
-```bash
-yarn serve
-```
-
-### Build Component
-
-```bash
-yarn build
-```
-
-### Lints and fixes files
-
-```bash
-yarn lint
-```
 
 ## Contributing
 

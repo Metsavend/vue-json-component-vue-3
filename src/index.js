@@ -1,6 +1,6 @@
 import components from'./components'
 
-const plugin = {
+const JSONView = {
   install (Vue) {
     for (const prop in components) {
       if (components.hasOwnProperty(prop)) {
@@ -11,4 +11,4 @@ const plugin = {
   }
 }
 
-export default plugin
+export default JSONView
