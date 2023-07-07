@@ -11,7 +11,7 @@ export default defineConfig({
       entry: resolve(__dirname, "src/index.js"),
       name: "vue-json-component-vue-3",
       // the name of the output files when the build is run
-      fileName: "index",
+      fileName: "library",
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
