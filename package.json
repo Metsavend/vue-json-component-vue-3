@@ -1,10 +1,9 @@
 {
     "name": "vue-json-component-vue-3",
-    "version": "1.1.8",
+    "version": "1.1.9",
     "type": "module",
     "files": ["dist"],
-    "main": "dist/library.js",
-    "module": "dist/library.umd.cjs",
+    "module": "dist/library.js",
     "exports": {
         ".": {
             "import": "./dist/index.js",
@@ -38,7 +37,7 @@
         "preview": "vite preview",
         "test": "vite"
     },
-    "dependencies": {
+    "peerDependencies": {
         "vue": "^3.0.0"
     },
     "devDependencies": {

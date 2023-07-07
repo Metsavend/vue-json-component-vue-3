@@ -22,6 +22,7 @@ export default [
                 outputStyle: 'compressed'
             }),
             vue(), peerDepsExternal()
-        ]
+        ],
+        external: ['JSONView']
     }
 ];
