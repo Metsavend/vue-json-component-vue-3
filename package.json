@@ -1,50 +1,29 @@
 {
-    "name": "vue-json-component-vue-3",
-    "version": "1.2.2",
-    "type": "module",
-    "files": ["dist"],
-    "main": "dist/library.umd.cjs",
-    "module": "dist/library.es.js",
-    "exports": {
-        ".": {
-            "import": "./dist/library.es.js",
-            "require": "./dist/library.umd.cjs"
-        },
-        "./style.scss": "./dist/style.css"
+  "name": "vue-json-component-vue-3",
+  "version": "1.2.3",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-json-component-vue-3.umd.js",
+  "module": "./dist/vue-json-component-vue-3.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-json-component-vue-3.es.js",
+      "require": "./dist/vue-json-component-vue-3.umd.js"
     },
-    "description": "A VueJS JSON Tree View with no dependencies and module builds.",
-    "keywords": [
-        "vue",
-        "vuejs",
-        "vue-component",
-        "JSON",
-        "tree",
-        "expand"
-    ],
-    "author": "Tyler Krupicka <npm@tylerkrupicka.com> (https://www.tylerkrupicka.com)",
-    "contributors": [
-        "Rainer Tok <rainertok@metsavend.ee> (https://www.metsavend.ee)"
-    ],
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Metsavend/vue-json-component-vue-3.git"
-    },
-    "scripts": {
-        "build": "rollup -c",
-        "dev": "vite build",
-        "docs:dev": "vuepress dev docs",
-        "docs:build": "vuepress build docs",
-        "preview": "vite preview",
-        "test": "vite"
-    },
-    "peerDependencies": {
-        "vue": "^3.0.0"
-    },
-    "devDependencies": {
-        "@vitejs/plugin-vue": "^4.2.3",
-        "sass": "^1.63.6",
-        "vite": "^4.4.1",
-        "vuepress": "^1.9.9"
-    }
+    "./dist/style.scss": "./dist/style.scss"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "sass": "^1.63.6",
+    "vite": "^4.4.0"
+  }
 }
