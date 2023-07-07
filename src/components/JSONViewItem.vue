@@ -180,7 +180,7 @@ return JSON.stringify(props.data.value);
     display: flex;
     align-items: center;
     border-radius: 2px;
-    font-weight: 600;
+    font-weight: 600;   
     cursor: pointer;
     white-space: nowrap;
     padding: 5px;

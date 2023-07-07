@@ -1,13 +1,9 @@
 
+import JSONView from "./components/JSONView.vue";
 import './style.scss';
 
-import JSONView from "./JSONView.vue";
-
-export { JSONView }
-
-
 export default {
-  install: (app) => {
+  install: (app, options) => {
     app.component('JSONView', JSONView);
   }
 }
