@@ -130,3 +130,27 @@ const parsed = computed(() => {
 });
 
 </script>
+
+<style lang="scss" scoped>
+.root-item {
+    --vjc-key-color: #0977e6;
+    --vjc-valueKey-color: #073642;
+    --vjc-string-color: #268bd2;
+    --vjc-number-color: #2aa198;
+    --vjc-boolean-color: #cb4b16;
+    --vjc-null-color: #6c71c4;
+    --vjc-arrow-size: 6px;
+    --vjc-arrow-color: #444;
+    --vjc-hover-color: rgba(0, 0, 0, 0.2);
+
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+}
+.root-item.dark {
+    --vjc-key-color: #80d8ff;
+    --vjc-valueKey-color: #fdf6e3;
+    --vjc-hover-color: rgba(255, 255, 255, 0.2);
+    --vjc-arrow-color: #fdf6e3;
+}
+</style>

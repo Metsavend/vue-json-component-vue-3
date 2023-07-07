@@ -1,6 +1,17 @@
 {
     "name": "vue-json-component-vue-3",
-    "version": "1.1.0",
+    "version": "1.1.1",
+    "type": "module",
+    "files": ["dist"],
+    "main": "dist/library.js",
+    "module": "dist/library.mjs",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.umd.cjs"
+        },
+    "./style.scss": "./dist/style.css"
+    },
     "description": "A VueJS JSON Tree View with no dependencies and module builds.",
     "keywords": [
         "vue",
@@ -14,25 +25,21 @@
     "contributors": [
         "Rainer Tok <rainertok@metsavend.ee> (https://www.metsavend.ee)"
     ],
-    "main": "dist/library.js",
-    "module": "dist/library.mjs",
     "license": "MIT",
-    "files": [
-        "dist/*"
-    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Metsavend/vue-json-component-vue-3.git"
     },
-    "type": "module",
     "scripts": {
         "build": "rollup -c",
         "dev": "vite build",
         "docs:dev": "vuepress dev docs",
-        "docs:build": "vuepress build docs"
+        "docs:build": "vuepress build docs",
+        "preview": "vite preview",
+        "test": "vite"
     },
-    "peerDependencies": {
-        "vue": "^3.2.21"
+    "dependencies": {
+        "vue": "^3.0.0"
     },
     "devDependencies": {
         "@vitejs/plugin-vue": "^4.2.3",
