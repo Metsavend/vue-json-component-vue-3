@@ -312,4 +312,17 @@ return (_ctx, _cache) => {
 script.__scopeId = "data-v-438efa06";
 script.__file = "src/JSONView.vue";
 
-export { script as JSONView };
+var components = { JSONView: script };
+
+const plugin = {
+  install (Vue) {
+    for (const prop in components) {
+      if (components.hasOwnProperty(prop)) {
+        const component = components[prop];
+        Vue.component(component.name, component);
+      }
+    }
+  }
+};
+
+export { plugin as default };

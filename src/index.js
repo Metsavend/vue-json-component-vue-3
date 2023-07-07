@@ -1,3 +1,14 @@
-import JSONView from "./JSONView.vue";
+import components from'./components'
 
-export { JSONView };
+const plugin = {
+  install (Vue) {
+    for (const prop in components) {
+      if (components.hasOwnProperty(prop)) {
+        const component = components[prop]
+        Vue.component(component.name, component)
+      }
+    }
+  }
+}
+
+export default plugin

@@ -15,6 +15,7 @@ export default [
                 file: 'dist/library.js'
             }
         ],
+        external: ['JSONView'],
         plugins: [
             scss({
                 name: 'output.css',
