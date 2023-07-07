@@ -4,12 +4,12 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/vue-json-component-vue-3.umd.js",
-  "module": "./dist/vue-json-component-vue-3.es.js",
+  "main": "./dist/libary.umd.js",
+  "module": "./dist/libary.mjs",
   "exports": {
     ".": {
-      "import": "./dist/vue-json-component-vue-3.es.js",
-      "require": "./dist/vue-json-component-vue-3.umd.js"
+      "import": "./dist/libary.mjs",
+      "require": "./dist/libary.umd.js"
     },
     "./dist/style.scss": "./dist/style.scss"
   },

@@ -8,7 +8,7 @@ export default defineConfig({
       lib: {
         entry: resolve(__dirname, "src/index.js"),
         name: "vue-json-component-vue-3",
-        fileName: (format) => `${format}.js`,
+        fileName: 'libary'
       },
       rollupOptions: {
         external: ["vue"],
