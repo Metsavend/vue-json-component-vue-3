@@ -6,3 +6,5 @@ export default {
         app.component("JSONView", JSONView);
     }
 };
+
+export {JSONView};
