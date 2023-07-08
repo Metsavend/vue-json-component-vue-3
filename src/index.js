@@ -1,3 +1,4 @@
+"use strict";
 import JSONView from './components/JSONView.vue';
 
 export default {

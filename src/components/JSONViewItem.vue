@@ -63,10 +63,10 @@ canSelect: {
 },
 });
 
-const open = ref<boolean>(props.data.depth < props.maxDepth);
+const open = ref(props.data.depth < props.maxDepth);
 
 const toggleOpen = () => {
-open.value = !open.value;
+    open.value = !open.value;
 };
 
 const clickEvent = (data) => {
