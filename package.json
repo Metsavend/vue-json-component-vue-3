@@ -1,6 +1,6 @@
 {
   "name": "vue-json-component-vue-3",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "A VueJS JSON Tree View with no dependencies and module builds.",
   "keywords": [
     "vue",
@@ -18,6 +18,15 @@
   "files": [
     "dist"
   ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Metsavend/vue-json-component-vue-3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Metsavend/vue-json-component-vue-3.git/issues"
+  },
+  "homepage": "https://github.com/Metsavend/vue-json-component-vue-3.git#readme",
   "main": "./dist/library.umd.cjs",
   "module": "./dist/library.js",
   "exports": {
