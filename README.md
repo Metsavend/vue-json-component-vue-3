@@ -9,7 +9,7 @@ Now you can use it with vue 3 with no problem. I removed much much useless plugi
 
 A collapsable tree view for JSON. This package has some similarites with [vue-json-tree-view](https://github.com/michaelfitzhavey/vue-json-tree-view) so I'll address the differences below. I'm not contributing this back to that package because it would require breaking API changes, and the code is entirely different. **Contributions welcome!**
 
-![demo image](https://user-images.githubusercontent.com/5761061/55198958-7fa16400-518e-11e9-8448-7cd028007920.png)
+![demo image](https://github.com/Metsavend/vue-json-component-vue-3/blob/main/jsonnew.png?raw=true)
 
 ## Philosophy
 
