@@ -1,17 +1,31 @@
 {
   "name": "vue-json-component-vue-3",
-  "version": "1.3.0",
+  "version": "1.5.983",
+  "description": "A VueJS JSON Tree View with no dependencies and module builds.",
+  "keywords": [
+    "vue",
+    "vuejs",
+    "vue-component",
+    "JSON",
+    "tree",
+    "expand"
+  ],
+  "type": "module",
+  "author": "Tyler Krupicka <npm@tylerkrupicka.com> (https://www.tylerkrupicka.com)",
+  "contributors": [
+    "Rainer Tok <rainertok@metsavend.ee> (https://www.metsavend.ee)"
+  ],
   "files": [
     "dist"
   ],
-  "main": "./dist/library.umd.js",
+  "main": "./dist/library.umd.cjs",
   "module": "./dist/library.js",
   "exports": {
     ".": {
       "import": "./dist/library.js",
-      "require": "./dist/library.umd.js"
+      "require": "./dist/library.umd.cjs"
     },
-    "./dist/style.scss": "./dist/style.scss"
+    "./dist/style.css": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",
@@ -24,6 +38,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
     "sass": "^1.63.6",
-    "vite": "^4.4.0"
+    "vite": "^4.4.0",
+    "vite-plugin-libcss": "^1.1.1"
   }
 }

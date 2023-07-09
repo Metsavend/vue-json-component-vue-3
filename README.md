@@ -1,13 +1,11 @@
 # Vue JSON Component
 
-[![npm version](https://badge.fury.io/js/vue-json-component.svg)](https://badge.fury.io/js/vue-json-component) [![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.svg?v=101)](https://github.com/ellerbrock/typescript-badges/) ![npm bundle size](https://img.shields.io/bundlephobia/min/vue-json-component.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![npm version](https://badge.fury.io/js/vue-json-component.svg)](https://badge.fury.io/js/vue-json-component) ![npm bundle size](https://img.shields.io/bundlephobia/min/vue-json-component.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [Demo](http://tylerkrupicka.com/vue-json-component/)
 
-NB! I try to ket it work. WIll display here if working. 
-
 I made this [Original package](https://github.com/tylerkrupicka/vue-json-component) to Vue 3 full support.
-Now you can use it with vue 3 with no problem.
+Now you can use it with vue 3 with no problem. I removed much much useless plugins here what user/client who is using this plugin does not need in their project.
 
 A collapsable tree view for JSON. This package has some similarites with [vue-json-tree-view](https://github.com/michaelfitzhavey/vue-json-tree-view) so I'll address the differences below. I'm not contributing this back to that package because it would require breaking API changes, and the code is entirely different. **Contributions welcome!**
 
@@ -15,14 +13,9 @@ A collapsable tree view for JSON. This package has some similarites with [vue-js
 
 ## Philosophy
 
-This package has a few major improvements over predecessors: builds, styles, and customization. For builds, this package ships CommonJS, Module, and UNPKG builds with no dependencies. [vue-json-tree-view](https://github.com/michaelfitzhavey/vue-json-tree-view) bundles in lots of dependencies -- including lodash. I also export global Vue imports, local Vue imports, and TypeScript declarations. The code itself is about as small as it can be while being easy to follow.
-
-- [vue-json-tree-view (84KB)](https://bundlephobia.com/result?p=vue-json-tree-view@2.1.4)
-- [vue-json-component (9KB)](https://bundlephobia.com/result?p=vue-json-component@0.3.0)
-
-The styles in this package are all scoped, with key colors still being customizable. There are no extra margins or overflow rules and text properties are all inherited from the page. This makes the view much easier to integrate anywhere you need it.
-
-The default color theme is based on solarized, and font weights are modified to increase readability. The component uses semantic HTML elements and tries to be fully keyboard accessible.
+I found that json plugin, but it was not workign on vue 3. I am full time developer in Vue 3 now and wanted to make it work on vue 3 also. Found before that original json plugin was very nice and easy to use.
+I made some adjustment too but basicly all are same like before.
+Added custom icons via svg.
 
 ## Usage
 
@@ -36,7 +29,8 @@ yarn add vue-json-component-vue-3
 ### Import Locally
 
 ```js 
-import { JSONView } from 'vue-json-component-vue-3';
+import { JSONView } from "vue-json-component-vue-3";
+import "vue-json-component-vue-3/dist/style.css";
 
 ```
 
@@ -44,6 +38,7 @@ import { JSONView } from 'vue-json-component-vue-3';
 
 ```js
 import JSONView from 'vue-json-component-vue-3';
+import "vue-json-component-vue-3/dist/style.css";
 app.use(JSONView);
 ```
 
@@ -65,7 +60,10 @@ The font size and font family are inherited from the page. The component now sup
 - **data** (JSON): The valid JSON object you want rendered as a tree.
 - **rootKey** (String): The name of the top level root key; defaults to root.
 - **maxDepth** (Number): Depth of the tree that is open at first render; defaults to 1.
-- **colorScheme (New)** (String): Setting to 'dark' enables dark mode.
+- **colorScheme** (String): Setting to 'dark' enables dark mode.
+- **useFilter (new in vue 3 version)** (Boolean): It enables filter function. Bassicly you can click on funnel icon to key path in array or object.
+- **arrowExpand (new in vue 3 version)** (String,Number): Custom image from svg. Full svg requiered. NB! exaple below;
+- **arrowCollapse (new in vue 3 version)** (String,Number): Custom image from svg. Full svg requiered. NB! exaple below;
 
 #### Styles
 
@@ -78,8 +76,8 @@ The font size and font family are inherited from the page. The component now sup
 --vjc-number-color: #2aa198;
 --vjc-boolean-color: #cb4b16;
 --vjc-null-color: #6c71c4;
---vjc-arrow-size: 6px;
---vjc-arrow-color: #444;
+--vjc-arrow-size: 6px; // removed at the moment
+--vjc-arrow-color: #444; // removed at the moment
 --vjc-hover-color: rgba(0, 0, 0, 0.15);
 ```
 
@@ -107,8 +105,6 @@ The font size and font family are inherited from the page. The component now sup
 
 Note: your styles will need to be scoped to override the scoped CSS Variables in the component.
 
-## Advanced Features
-
 ### Selected Item Events
 
 You can allow users to click elements, and receive an event when this occurs. The `selected` event will pass you the key, value, and path of the selected value. If you do not listen for the event, the styles will not indicate that values are clickable.
@@ -116,40 +112,44 @@ You can allow users to click elements, and receive an event when this occurs. Th
 ```js
 <JSONView
   :data="data"
-  v-on:selected="itemSelected"
+  @selected="itemSelected"
 />
 ```
-
-**Event**
-
+**Event (selected)**
 - key: _string_
 - value: _string_
 - path: _string_
+```
+
+### Filter Item Events
+
+If useFilter is true, then you can use funnel icon to call event on array or object items. It will return full path where this item is located.
+In development. If clicked on filter data fill be filtered in selected key.
+
+```js
+<JSONView
+  :data="data"
+  @filter="filterEvent"
+/>
+```
+**Event (selected)**
+- key: _string_
+- value: _string_
+- path: _string_
+- type: object or array,
+- selected_path: _string_
+```
 
 ## Development
+
+1. Trying to make things better and better.
+2. Trying to expand filter function to get path elements only.
+3. Trying to make all costumize. You can edit all params, like borders, sizes and so on.
 
 ### Install
 
 ```bash
-yarn
-```
-
-### Hot-Reload Hostapp
-
-```bash
-yarn serve
-```
-
-### Build Component
-
-```bash
-yarn build
-```
-
-### Lints and fixes files
-
-```bash
-yarn lint
+npm
 ```
 
 ## Contributing

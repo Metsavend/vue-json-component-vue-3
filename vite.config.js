@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { resolve } from "path";
+import { resolve } from 'path'
+import libCss from 'vite-plugin-libcss';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -16,8 +17,8 @@ export default defineConfig({
           globals: {
             vue: "Vue"
           }
-        }
+        },
       }
   },
-  plugins: [vue()],
+  plugins: [vue(),  libCss()],
 })
