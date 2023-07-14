@@ -8,16 +8,18 @@
         :arrowExpand="arrowExpand"
         :arrowCollapse="arrowCollapse"
         :useFilter="useFilter" 
+        :customParams="customParams"
+        :noBorder="noBorder"
         @selected="itemSelected"
-        @filter="$emit('filter', $event)"
+        @filter="$emit('filter', $event);"
     />
 </template>
 
 <script>
-    import { computed, defineComponent } from 'vue';
-        export default defineComponent({
+    import { computed, defineComponent, ref } from 'vue';
+      export default defineComponent({
         name: 'json-view',
-    });
+      });
 </script>
 <script setup>
 import JSONViewItem from './JSONViewItem.vue';
@@ -45,7 +47,17 @@ const props = defineProps({
         required: false,
         default: 'light',
     },
+    customParams: {
+        type: Object,
+        required: false,
+        default: () => {},
+    },
     useFilter: {
+        type: Boolean, 
+        required: false,
+        default: false
+    },
+    noBorder: {
         type: Boolean, 
         required: false,
         default: false
@@ -62,7 +74,7 @@ const props = defineProps({
     }
 });
 
-const emit = defineEmits(['selected', 'filter']);
+const emit = defineEmits(['selected', 'filter', 'filteredDataPath']);
 
 const build = (
     key,
@@ -154,6 +166,8 @@ const parsed = computed(() => {
     };
 });
 
+const filteredDataPath = ref();
+const consoles = ref();
 </script>
 <style>
 .root-item {
@@ -161,7 +175,8 @@ const parsed = computed(() => {
     --vjc-valueKey-color: #073642;
     --vjc-string-color: #268bd2;
     --vjc-number-color: #2aa198;
-    --vjc-boolean-color: #cb4b16;
+    --vjc-boolean-color-false: #cb4b16;
+    --vjc-boolean-color-true: green;
     --vjc-null-color: #6c71c4;
     --vjc-arrow-size: 6px;
     --vjc-arrow-color: #444;
@@ -180,9 +195,11 @@ const parsed = computed(() => {
     margin-left: 15px;
   }
   .json-view-item {
-      padding: 1px;
-      border-bottom: 1px dashed #999 !important;
+      border-bottom: 1px dashed #999;
       margin-bottom: -2px;
+  }
+  .json-view-item:last-child {
+    border-bottom: none;
   }
   .value-key {
     color: var(--vjc-valueKey-color);
