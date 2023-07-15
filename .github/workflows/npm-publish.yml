@@ -20,6 +20,7 @@ jobs:
           scope: '@Metsavend'
       - run: npm install
       - run: npm run build
+      - run: npm adduser
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
