@@ -20,11 +20,10 @@
   "type": "module",
   "license": "MIT",
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Metsavend/vue-json-component-vue-3.git"
+    "url": "git://github.com/Metsavend/vue-json-component-vue-3.git"
   },
   "publishConfig": {
-    "Metsavend": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com/"
   },
   "bugs": {
     "url": "https://github.com/Metsavend/vue-json-component-vue-3.git/issues"
