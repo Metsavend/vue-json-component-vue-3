@@ -123,7 +123,6 @@ You can allow users to click elements, and receive an event when this occurs. Th
 - key: _string_
 - value: _string_
 - path: _string_
-```
 
 ### Filter Item Events
 
@@ -142,7 +141,6 @@ In development. If clicked on filter data fill be filtered in selected key.
 - type: object or array
 - reset: boolean
 - selected_path: _string_
-```
 
 ## Development
 
