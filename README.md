@@ -11,6 +11,11 @@ A collapsable tree view for JSON. This package has some similarites with [vue-js
 
 ![demo image](https://www.metsavend.ee/vue3jsonview/jsonnew.png)
 
+## Version updates.
+- 1.7.4 removed key margin-left and reduced array, object margin to 10px;
+- 1.7.5 long words, values now wrap.
+
+
 ## Philosophy
 
 I found that json plugin, but it was not workign on vue 3. I am full time developer in Vue 3 now and wanted to make it work on vue 3 also. Found before that original json plugin was very nice and easy to use.

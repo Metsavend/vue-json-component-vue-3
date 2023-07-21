@@ -192,7 +192,7 @@ const consoles = ref();
     --vjc-arrow-color: #fdf6e3;
   }
   .json-view-item:not(.root-item) {
-    margin-left: 15px;
+    margin-left: 10px;
   }
   .json-view-item {
       border-bottom: 1px dashed #999;
@@ -205,7 +205,7 @@ const consoles = ref();
     color: var(--vjc-valueKey-color);
     font-weight: 600;
     font-size: inherit;
-    margin-left: 10px;
+    margin-left: 0;
     border-radius: 2px;
     white-space: nowrap;
     padding: 5px 5px 5px 10px;

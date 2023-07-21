@@ -45,10 +45,10 @@
 <script setup>
 import { reactive, ref } from 'vue';
 
-// import JSONView from "../src/components/JSONView";
+import JSONView from "../src/components/JSONView";
 
-import { JSONView } from "vue-json-component-vue-3";
-import "vue-json-component-vue-3/dist/style.css";
+// import { JSONView } from "vue-json-component-vue-3";
+// import "vue-json-component-vue-3/dist/style.css";
 
 const data = reactive({
     'test': [
@@ -72,7 +72,7 @@ const data = reactive({
                 }
             }
         },
-        { terve: 'te ssd', },
+        { terve: 'very very very long long long words words words very very very long long long words words words very very very long long long words words words very very very long long long words words words very very very long long long words words words very very very long long long words words words', },
         { terve: 'te ssd', },
         { terve: 'te ssd', },
         { terve: 'te ssd', },
@@ -81,7 +81,8 @@ const data = reactive({
     'array_of_number': [10, 1000, 2334, 4003, 4000 , 8888],
     'array_of_booleans': [true, false, true, true ,true, false, false, false, false],
     'number': 123,
-    'string': "This is string"
+    'string': "This is string",
+    'long_value': 'very very very long long long words words words very very very long long long words words words very very very long long long words words words very very very long long long words words words very very very long long long words words words'
 })
 
 const data_key_selected = ref();

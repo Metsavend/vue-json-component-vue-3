@@ -75,8 +75,13 @@
                 :role="canSelect ? 'button' : undefined"
                 :tabindex="canSelect ? '0' : undefined"
             >
-            <span class="value-key"><slot name="dataKey"/>{{ data.key }}:</span>
-            <span :style="getValueStyle(data.value)">
+            <span class="value-key">
+                <slot name="dataKey"/>
+                    {{ data.key }}:
+            </span>
+            <span :style="getValueStyle(data.value)" 
+                style="white-space: pre-wrap;"
+            >
                 <slot name="dataValue"/>{{ data.value }}
             </span>
         </div>
