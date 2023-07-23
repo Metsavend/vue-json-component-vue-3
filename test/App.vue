@@ -10,6 +10,8 @@
         :noBorder="noBorder"
         :colorScheme="dark ? 'dark' : 'light'"
         :customParams="{property: objekt, item: array}"
+        :length_of_value="length_of_value"
+        :use_ellipsis="use_ellipsis"
         @filter="filterfunc($event)"
     />
     </div>
@@ -35,7 +37,12 @@
                 <input type="text" class="form-control" v-model="objekt[1]" placeholder="">
                 <label for="floatingInput">Objects</label>
             </div>
+            <div class="form-floating mb-3">
+                <input type="number" min="1" class="form-control" v-model="length_of_value" placeholder="">
+                <label for="floatingInput">Length of value</label>
+            </div>
         </div>
+        <button class="btn btn-outline-primary mt-1" @click="use_ellipsis = !use_ellipsis">{{ use_ellipsis ? 'dont use ellipsis function' : 'use ellipsis function' }}</button><br/>
         <div style="margin-top: 3em;" v-if="data_key_selected">
             Selected path: {{ data_key_selected }}
         </div>
@@ -82,6 +89,7 @@ const data = reactive({
     'array_of_booleans': [true, false, true, true ,true, false, false, false, false],
     'number': 123,
     'string': "This is string",
+    'Longstring': "sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
     'long_value': 'very very very long long long words words words very very very long long long words words words very very very long long long words words words very very very long long long words words words very very very long long long words words words'
 })
 
@@ -89,7 +97,9 @@ const data_key_selected = ref();
 
 const newdata = ref();
 const noBorder = ref(false);
+const use_ellipsis = ref(false);
 const dark = ref(false);
+const length_of_value = ref(50);
 const array = ref(['massiiv','massiivi']);
 const objekt = ref(['objekt', 'objekti']);
 

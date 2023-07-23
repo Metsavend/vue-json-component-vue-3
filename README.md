@@ -1,6 +1,6 @@
-# Vue JSON Component
+# Vue JSON Component For Vue-3
 
-![npm bundle size](https://img.shields.io/bundlephobia/min/vue-json-component.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [Demo](https://www.metsavend.ee/vue3jsonview/) (Like New Version)
 
@@ -12,8 +12,12 @@ A collapsable tree view for JSON. This package has some similarites with [vue-js
 ![demo image](https://www.metsavend.ee/vue3jsonview/jsonnew.png)
 
 ## Version updates.
-- 1.7.4 removed key margin-left and reduced array, object margin to 10px;
-- 1.7.5 long words, values now wrap.
+- **1.7.4** removed key margin-left and reduced array, object margin to 10px;
+- **1.7.5** long words, values now wrap.
+- **1.7.6** (23.07.2023)
+  1. longlong words what does not have space wraps too.
+  2. I add 2 new props [length_of_value, use_ellipsis]. description is below @ props descriptions.
+  3. Demo is updated to last 1.7.6 functionalitys.
 
 
 ## Philosophy
@@ -71,7 +75,8 @@ The font size and font family are inherited from the page. The component now sup
 - **arrowCollapse (new in vue 3 version)** (String,Number): Custom image from svg. Full svg requiered. NB! exaple below;
 - **customParams (new in 1.7)** (object): Custom strings for item and objetcs. Must be {property: ['objectOne', 'objectMany'], item: ['arrayOne', 'arrayMany']} ;
 - **noBorder (new in 1.7)** (Boolean): if items have border or not.
-
+- **length_of_value (new in 1.7.6**) (Number): Length of value to show default. Must set props use_ellipsis to true, do use it. 
+- **use_ellipsis (new in 1.7.6**) (Boolean): Enables ellipsis function to hide very long values default.
 
 
 #### Styles
@@ -152,6 +157,8 @@ In development. If clicked on filter data fill be filtered in selected key.
 1. Trying to make things better and better.
 2. Trying to expand filter function to get path elements only.
 3. Trying to make all costumize. You can edit all params, like borders, sizes and so on.
+4. Trying to make it editable and then save to file if needed.
+5. Read file in and save it later.
 
 ### exaple with filter (my solution)
 ```js

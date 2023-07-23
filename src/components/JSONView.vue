@@ -10,6 +10,8 @@
         :useFilter="useFilter" 
         :customParams="customParams"
         :noBorder="noBorder"
+        :length_of_value="length_of_value"
+        :use_ellipsis="use_ellipsis"
         @selected="itemSelected"
         @filter="$emit('filter', $event);"
     />
@@ -71,6 +73,16 @@ const props = defineProps({
         type: [String, Number], 
         required: false,
         default: ''
+    },
+    length_of_value: {
+        type:  Number, 
+        required: false,
+        default: 50
+    },
+    use_ellipsis: {
+        type:  Boolean, 
+        required: false,
+        default: false
     }
 });
 

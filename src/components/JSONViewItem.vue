@@ -58,9 +58,11 @@
                 :firstKey="false"
                 :arrowExpand="arrowExpand"
                 :customParams="customParams"
+                :length_of_value="length_of_value"
                 :noBorder="noBorder"
                 :arrowCollapse="arrowCollapse"
                 :useFilter="useFilter"
+                :use_ellipsis="use_ellipsis"
                 @filter="$emit('filter', $event)"
                 @selected="bubbleSelected"
             />
@@ -79,10 +81,24 @@
                 <slot name="dataKey"/>
                     {{ data.key }}:
             </span>
-            <span :style="getValueStyle(data.value)" 
-                style="white-space: pre-wrap;"
+            <span v-if="!use_ellipsis"
+                :class="'showOverflow'"
+                :style="getValueStyle(data.value)"
             >
-                <slot name="dataValue"/>{{ data.value }}
+                <slot name="dataValue"/> {{ data.value }}
+            </span>
+            <span 
+                v-else
+                :style="getValueStyle(data.value)"
+                :class="Show_overflow ? 'showOverflow hover' : 'hideOverflow hover'"
+            >
+                <slot name="dataValue"/>
+                {{ data.value?.length > length_of_value_checked ? (Show_overflow ? data.value : data.value?.slice(0, length_of_value_checked)) : data.value }}
+                    <span
+                        v-if="data.value?.length > length_of_value_checked"
+                        @click="data.value?.length > length_of_value_checked ? Show_overflow = !Show_overflow : ''"
+                        v-html="!Show_overflow ? elipsis : unelipsis"
+                    />
             </span>
         </div>
     </div>
@@ -95,6 +111,7 @@ export default defineComponent({
 </script>
 <script setup>
 const emit = defineEmits(['selected', 'filter']);
+const Show_overflow = ref(false);
 const props = defineProps({
 data: {
     required: true,
@@ -144,6 +161,16 @@ arrowCollapse: {
     type: [String, Number], 
     required: false,
     default: ''
+},
+length_of_value: {
+    type: Number, 
+    required: false,
+    default: 50
+},
+use_ellipsis: {
+    type: Boolean, 
+    required: false,
+    default: false
 }
 });
 
@@ -152,6 +179,8 @@ const open = ref(props.data.depth < props.maxDepth);
 const toggleOpen = () => {
     open.value = !open.value;
 };
+
+const length_of_value_checked = computed(() => props.length_of_value < 1 ? 50 : props.length_of_value);
 
 const clickEvent = (data) => {
     emit('selected', {
@@ -239,6 +268,9 @@ const lengthString = computed(() => {
     }
 });
 
+const elipsis = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="blue" viewBox="0 0 256 256"><path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" opacity="0.2"></path><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm56-88a12,12,0,1,1-12-12A12,12,0,0,1,184,128Zm-44,0a12,12,0,1,1-12-12A12,12,0,0,1,140,128Zm-44,0a12,12,0,1,1-12-12A12,12,0,0,1,96,128Z"></path></svg>';
+const unelipsis = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="green" viewBox="0 0 256 256"><path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" opacity="0.2"></path><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm12-88a12,12,0,1,1-12-12A12,12,0,0,1,140,128Zm0-44a12,12,0,1,1-12-12A12,12,0,0,1,140,84Zm0,88a12,12,0,1,1-12-12A12,12,0,0,1,140,172Z"></path></svg>';
+
 </script>
 <style>
 .hover{
@@ -247,5 +279,16 @@ const lengthString = computed(() => {
 .hover:hover {
     opacity:0.6;
     cursor: pointer;
+}
+
+.hideOverflow {
+    overflow-x: hidden !important;
+    word-wrap:break-word;
+    white-space: normal;
+}
+.showOverflow {
+    overflow: auto;
+    word-wrap:break-word;
+    white-space: normal;
 }
 </style>
